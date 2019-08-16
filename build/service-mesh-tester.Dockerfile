@@ -4,6 +4,7 @@ RUN mkdir /applications
 WORKDIR /applications/
 
 COPY . /applications
+RUN npm i --production
 
 EXPOSE 3000
 
