@@ -26,7 +26,9 @@ router.post('/', function (req, res, next) {
   if (body.passTo && body.passTo !== '') {
     const passTo = body.passTo;
     delete body.passTo;
-    axios.post('http://' + passTo + '/', body)
+    axios.post('http://' + passTo + '/', body, {
+      headers: { 'Host': passTo },
+    })
       .then(function (response) {
         console.log(`request for ${passTo} returned with success`);
         body.passTo = {
